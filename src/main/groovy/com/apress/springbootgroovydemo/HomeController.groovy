@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 
+import javax.servlet.http.HttpServletRequest
+
 @Controller
 @CompileStatic
 class HomeController {
@@ -26,7 +28,7 @@ class HomeController {
 
 
     @GetMapping("/")
-    String home(Model model) {
+    String home(Model model, HttpServletRequest httpServletRequest) {
         userService.saveUser1()
         def allUsers = getUsers()
         def u = allUsers[0]
@@ -41,7 +43,7 @@ class HomeController {
 
     List<User> getUsers() {
         def collect = sql.rows('''select * from users``''').collect {
-            new User(Long.parseLong(it['id'].toString()), it['name'].toString(), it['email'].toString())
+            new User(id: Long.parseLong(it['id'].toString()), name: it['name'].toString(), email: it['email'].toString())
         }
         collect
 

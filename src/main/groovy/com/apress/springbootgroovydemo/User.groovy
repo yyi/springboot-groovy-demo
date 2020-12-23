@@ -6,12 +6,13 @@ import groovy.transform.CompileStatic
 import javax.persistence.*
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 @Canonical
 @CompileStatic
 //@groovy.transform.Immutable
-class User implements  GroovyInterceptable{
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+class User implements GroovyInterceptable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     long id
     String name
     String email

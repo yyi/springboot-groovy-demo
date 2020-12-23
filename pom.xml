@@ -22,6 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <groovy.version>2.5.14</groovy.version>
     </properties>
 
     <dependencies>
@@ -44,12 +45,12 @@
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy</artifactId>
-            <version>3.0.6</version>
+            <version>${groovy.version}</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-sql</artifactId>
-            <version>3.0.6</version>
+            <version>${groovy.version}</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
@@ -72,7 +73,7 @@
             <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
                 <artifactId>gmavenplus-plugin</artifactId>
-                <version>1.11.1</version>
+                <version>1.12.0</version>
                 <executions>
                     <execution>
                         <goals>
@@ -91,6 +92,7 @@
                     <invokeDynamic>true</invokeDynamic>
                     <verbose>true</verbose>
                     <parallelParsing>true</parallelParsing>
+                    <targetBytecode>1.8</targetBytecode>
                 </configuration>
             </plugin>
             <!--<plugin>
